@@ -1,5 +1,5 @@
 import pytest
-from plugins.santec_calif_debug_cable_plugin import Santec_Debug
+from debug_cable_plugins.plugins.santec_calif_debug_cable_plugin import Santec_Debug
 
 port, conn = Santec_Debug.can_connect()
 plugin = Santec_Debug(conn)
@@ -64,7 +64,11 @@ def get_response():
 """   
 
 def test_opm_read():
-    resp = plugin.read_reg("meas.raw")
+    resp = plugin.read_reg("src.power")
+    print(resp)
+    print(resp[0])
+    print(resp[1])
+    resp = plugin.read_reg("src.hp.plr")
     print(resp)
    
 

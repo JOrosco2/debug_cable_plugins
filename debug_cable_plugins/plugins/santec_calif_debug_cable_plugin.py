@@ -54,7 +54,9 @@ class Santec_Debug(CLIInterface):
         #format the response so only the value is given
         clean_lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith(cmd) and line.strip() != "$" and line.strip() != "<CLI INITIALIZED>" and line.strip() != f"$ {cmd}"]
         if clean_lines:
-            return clean_lines if len(clean_lines) > 0 else clean_lines[0]
+            #if tehre is more than 1 value in the response return them all, otherwise just return the single index (not as an array)
+            #programs that use this plugin will need to filter through the responses properly
+            return clean_lines if len(clean_lines) > 1 else clean_lines[0]
         else:
             return "No data received"
 
