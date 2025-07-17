@@ -54,7 +54,7 @@ class Santec_Debug(CLIInterface):
         #format the response so only the value is given
         clean_lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith(cmd) and line.strip() != "$" and line.strip() != "<CLI INITIALIZED>" and line.strip() != f"$ {cmd}"]
         if clean_lines:
-            return clean_lines
+            return clean_lines if len(clean_lines) > 0 else clean_lines[0]
         else:
             return "No data received"
 
