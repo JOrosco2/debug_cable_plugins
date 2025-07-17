@@ -4,6 +4,9 @@ from plugins.santec_calif_debug_cable_plugin import Santec_Debug
 port, conn = Santec_Debug.can_connect()
 plugin = Santec_Debug(conn)
 
+print(f"Running TEST SANTEC CALIF DEBUG CABLE")
+
+"""
 def test_can_connect():
    port = plugin.read_port()
    assert isinstance(port,str)
@@ -43,7 +46,7 @@ def get_response():
    print(f"PLR_DEC CH1:***********"+str((ch1_hex_resp))+"***********")
    print(f"PLR_DEC CH2:***********"+str((ch2_hex_resp))+"***********")
 
-"""
+
    resp = plugin.read_reg("src.hp.vtec")
    print(f"VTEC:***********"+resp+"***********")
    int_resp = int(resp)
@@ -58,8 +61,11 @@ def get_response():
    print(f"\nVTEC_HEX CH2:***********"+str(hex(ch2_hex_resp))+"***********\n")
    print(f"\nVTEC_DEC CH1:***********"+str((ch1_hex_resp))+"***********\n")
    print(f"\nVTEC_DEC CH2:***********"+str((ch2_hex_resp))+"***********\n")
-"""
-   
+"""   
+
+def test_opm_read():
+    resp = plugin.read_reg("meas.raw")
+    print(resp)
    
 
 

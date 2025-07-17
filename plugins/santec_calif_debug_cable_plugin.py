@@ -5,7 +5,7 @@ import time
 
 plugin_info = {
     "name":"Santec Debug Cable",
-    "type":"CLI_cable",
+    "type":"CLI_Cable",
     "class":"Santec_Debug"
 }
 
@@ -54,7 +54,7 @@ class Santec_Debug(CLIInterface):
         #format the response so only the value is given
         clean_lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith(cmd) and line.strip() != "$"]
         if clean_lines:
-            return clean_lines[0]
+            return clean_lines
         else:
             return "No data received"
 
